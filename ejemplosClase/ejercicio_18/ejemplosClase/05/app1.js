@@ -5,11 +5,15 @@ const utilidades = {
     render(registro, selector){
         const destino = document.querySelector(selector);
         
-        destino.innerHTML += `
+        destino.innerHTML = `
             <li class="registro">
             <span class="dato">${registro.nombre}</span>
             <span class="dato">${registro.nota}</span>
             </li>`;
+    }
+
+    renderDinamico(registro, selector) {
+
     }
     
 }
@@ -24,7 +28,7 @@ const nota = document.querySelector('#nota');
 const formulario=document.querySelector('form');
 const botonListar = document.querySelector('#botonListar');
 const botonLimpiar = document.querySelector('#botonLimpiar');
-const lista = document.querySelector('#lista');
+
 
 // para controlar el envion del formulario
 // esto me permite controlar el click sobre el boton guardar
@@ -39,7 +43,7 @@ formulario.addEventListener('submit', (evento) => {
         nota: nota.value
     };
     
-    
+    utilidades.render(alumno, '#lista');
     
 });
 
