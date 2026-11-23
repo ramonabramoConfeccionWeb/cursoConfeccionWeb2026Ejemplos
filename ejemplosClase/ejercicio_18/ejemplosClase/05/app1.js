@@ -3,8 +3,10 @@
 const utilidades = {
     // dibujar los datos en un elemento html
     render(registro, selector){
+        // apunto al elemento destino donde voy a dibujar el registro
         const destino = document.querySelector(selector);
         
+        // creo el html con los datos del registro
         destino.innerHTML = `
             <li class="registro">
             <span class="dato">${registro.nombre}</span>
@@ -13,6 +15,26 @@ const utilidades = {
     }
 
     renderDinamico(registro, selector) {
+        // apunto al elemento destino donde voy a dibujar el registro
+        const destino = document.querySelector(selector);
+
+        // dibujar los datos del registro
+
+        // creo el elemento li
+        const li = document.createElement('li');
+        // creo los elementos span
+        const spanNombre = document.createElement('span');
+        const spanNota = document.createElement('span');
+        // añado a los span creados el texto del registro
+        spanNombre.textContent = registro.nombre;
+        spanNota.textContent = registro.nota;
+        // añado los span al li
+        li.appendChild(spanNombre);
+        li.appendChild(spanNota);
+
+        // añado el li al destino
+        destino.appendChild(li);
+
 
     }
     
