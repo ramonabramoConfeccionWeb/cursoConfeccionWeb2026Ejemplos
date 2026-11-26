@@ -67,26 +67,30 @@ const menuTotal = {
         }
     ],
     // crea un menu con innerHTML
+    // crea un menu con innerHTML
     renderMenuTexto() {
         let salida = '<ul>';
-        this.menu.forEach((elemento) => {
-            salida += `<li><a href="${elemento.url}">${elemento.etiqueta}</a></li>`;
-        });
-        salida += '</ul>';
+        const elementos = this.menu
+            .map((elemento) => {
+                return `<li><a href="${elemento.url}">${elemento.etiqueta}</a></li>`
+            })
+            .join('');
+        salida += `${elementos}</ul>`;
         return salida;
     },
 
     // crear un menu con createElement
     renderMenuElement() {
         const ul = document.createElement('ul');
-        this.menu.forEach((elemento) => {
+        const elementos = this.menu.map((elemento) => {
             const li = document.createElement('li');
             const a = document.createElement('a');
             a.href = elemento.url;
             a.textContent = elemento.etiqueta;
             li.appendChild(a);
-            ul.appendChild(li);
+            return li
         });
+        ul.append(...elementos);
         return ul;
     }
 };
@@ -96,12 +100,12 @@ const menuTotal = {
 const navegacion = document.querySelector('nav');
 
 // opcion 1: innerHTML
-navegacion.innerHTML = renderMenuTexto(menu);
-// navegacion.innerHTML = menuTotal.renderMenuTexto();
+// navegacion.innerHTML = renderMenuTexto(menu);
+navegacion.innerHTML = menuTotal.renderMenuTexto();
 
 // opcion2 : createElement
-navegacion.appendChild(renderMenuElement(menu));
-// navegacion.appendChild(menuTotal.renderMenuElement());
+// navegacion.appendChild(renderMenuElement(menu));
+navegacion.appendChild(menuTotal.renderMenuElement());
 
 
 
