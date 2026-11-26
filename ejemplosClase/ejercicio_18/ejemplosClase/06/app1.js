@@ -27,20 +27,27 @@ const menu = [
 // crea un menu con innerHTML
 function renderMenuTexto(menu) {
     let salida = '<ul>';
-    menu.map
+    const elementos = menu
+        .map((elemento) => {
+            return `<li><a href="${elemento.url}">${elemento.etiqueta}</a></li>`
+        })
+        .join('');
+    salida += `${elementos}</ul>`;
+    return salida;
 }
 
 // crear un menu con createElement
 function renderMenuElement(menu) {
     const ul = document.createElement('ul');
-    menu.forEach((elemento) => {
+    const elementos = menu.map((elemento) => {
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.href = elemento.url;
         a.textContent = elemento.etiqueta;
         li.appendChild(a);
-        ul.appendChild(li);
+        return li
     });
+    ul.append(...elementos);
     return ul;
 }
 
@@ -89,12 +96,12 @@ const menuTotal = {
 const navegacion = document.querySelector('nav');
 
 // opcion 1: innerHTML
-// navegacion.innerHTML = renderMenuTexto(menu);
-navegacion.innerHTML = menuTotal.renderMenuTexto();
+navegacion.innerHTML = renderMenuTexto(menu);
+// navegacion.innerHTML = menuTotal.renderMenuTexto();
 
 // opcion2 : createElement
-// navegacion.appendChild(renderMenuElement(menu));
-navegacion.appendChild(menuTotal.renderMenuElement());
+navegacion.appendChild(renderMenuElement(menu));
+// navegacion.appendChild(menuTotal.renderMenuElement());
 
 
 
