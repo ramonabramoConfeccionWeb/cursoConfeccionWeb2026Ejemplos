@@ -1,0 +1,31 @@
+/*
+Estilos para la aplicación
+*/
+
+/* Estilos para las cabeceras */
+h2 {
+    color: #333;
+    font-size: 1.5em;
+    margin: 10px 0;
+    text-align: center;
+    border-bottom: 2px solid #333;
+}
+
+
+/* estilos para las fichas de mascotas */
+.mascota {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    min-width: 200px;
+    display: inline-block;
+}
+
+.mascota>li{
+    list-style: none;
+
+}
+
+.mascota>li>span{
+    font-weight: bold;
+}
