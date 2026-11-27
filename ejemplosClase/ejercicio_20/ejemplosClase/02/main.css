@@ -13,7 +13,7 @@ h2 {
 
 
 /* estilos para las fichas de mascotas */
-.mascota {
+.mascota, .veterinario {
     border: 1px solid #ccc;
     padding: 10px;
     margin: 10px;
@@ -21,11 +21,16 @@ h2 {
     display: inline-block;
 }
 
-.mascota>li{
+.mascota>li,.veterinario>li{
     list-style: none;
 
 }
 
-.mascota>li>span{
+.mascota>li>span.label,.veterinario>li>span.label {
     font-weight: bold;
 }
+
+.veterinario1>li>span{
+    font-weight: bold;
+}
+
